@@ -24,7 +24,7 @@ mkdirSync(outDir, { recursive: true });
 const outPath = join(outDir, "entry.txt");
 writeFileSync(outPath, LINE, "utf8");
 
-// Round-trip verification: what we wrote is exactly what is on disk.
+// Round-trip verification: what we wrote is byte-for-byte what is on disk.
 const back = readFileSync(outPath, "utf8");
 if (back !== LINE) {
   throw new Error("round-trip verification failed: entry.txt mismatch");
